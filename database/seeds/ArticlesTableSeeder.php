@@ -23,6 +23,7 @@ class ArticlesTableSeeder extends Seeder
                     $title = $faker->sentence(5);
                         Article::insert([
                             'category_id' => $value->id,
+                            'user_id' => 1,
                             'title' => $title,
                             'slug' => str_replace(" ", "-" , $title),
                             'content' => $faker->sentence(100),
