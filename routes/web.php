@@ -18,4 +18,4 @@
 Auth::routes();
 
 Route::get('/', 'ArticleController@index');
-Route::get('home', 'ArticleController@index');
+Route::get('/dashboard', 'HomeController@index')->middleware('auth');

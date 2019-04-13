@@ -75,79 +75,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<img alt="" src="{{asset('assets/demo/demo2/media/img/logo/logo.png')}}" />
 										</a>
 									</div>
-									<div class="m-stack__item m-stack__item--middle m-brand__tools">
-										<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-left m-dropdown--align-push" m-dropdown-toggle="click" aria-expanded="true">
-											<a href="#" class="dropdown-toggle m-dropdown__toggle btn btn-outline-metal m-btn  m-btn--icon m-btn--pill">
-												<span>Dashboard</span>
-											</a>
-											<div class="m-dropdown__wrapper">
-												<span class="m-dropdown__arrow m-dropdown__arrow--left m-dropdown__arrow--adjust"></span>
-												<div class="m-dropdown__inner">
-													<div class="m-dropdown__body">
-														<div class="m-dropdown__content">
-															<ul class="m-nav">
-																<li class="m-nav__section m-nav__section--first m--hide">
-																	<span class="m-nav__section-text">Quick Menu</span>
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-share"></i>
-																		<span class="m-nav__link-text">Human Resources</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-chat-1"></i>
-																		<span class="m-nav__link-text">Customer Relationship</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-info"></i>
-																		<span class="m-nav__link-text">Order Processing</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-																		<span class="m-nav__link-text">Accounting</span>
-																	</a>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit">
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-chat-1"></i>
-																		<span class="m-nav__link-text">Customer Relationship</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-info"></i>
-																		<span class="m-nav__link-text">Order Processing</span>
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
 
-										<!-- begin::Responsive Header Menu Toggler-->
-										<a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
-											<span></span>
-										</a>
-
-										<!-- end::Responsive Header Menu Toggler-->
-
-										<!-- begin::Topbar Toggler-->
-										<a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
-											<i class="flaticon-more"></i>
-										</a>
-
-										<!--end::Topbar Toggler-->
-									</div>
 								</div>
 							</div>
 
@@ -228,8 +156,11 @@ License: You must have a valid license purchased only from themeforest(the above
 																		<li class="m-nav__separator m-nav__separator--fit">
 																		</li>
 																		<li class="m-nav__item">
-																			<a href="snippets/pages/user/login-1.html" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
-																		</li>
+                                                                            <a href="{{ route('logout') }}" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                                @csrf
+                                                                            </form>
+                                                                        </li>
 																	</ul>
 																</div>
 															</div>
@@ -269,7 +200,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
 								<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
 									<ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-										<li class="m-menu__item  m-menu__item--active " aria-haspopup="true"><a href="index.html" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Dashboard</span></a></li>
+                                        <li class="m-menu__item  m-menu__item--active " aria-haspopup="true"><a href="{{url('/')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Home</span></a></li>
+
+                                        @auth
+                                            
+                                        
+                                        <li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{url('/dashboard')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Dashboard</span></a></li>
+                                        @endauth
 										<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
 												 class="m-menu__link-text">Actions</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 											<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
@@ -500,7 +437,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="m-subheader ">
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
-								<h3 class="m-subheader__title ">Dashboard</h3>
+								<h3 class="m-subheader__title ">Home</h3>
 							</div>
 							<div>
 								<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">

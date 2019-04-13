@@ -1,5 +1,4 @@
 @extends('layouts.dashboard')
-
 @section('content')
 
 <!--Begin::Section-->
@@ -49,7 +48,7 @@
                             </div>
                         </div>
                         <div class="m-widget19__body">
-                            {{$item->content}}
+                            {{str_limit($item->content, $limit = 150)}}
                         </div>
                     </div>
                     <div class="m-widget19__action">
