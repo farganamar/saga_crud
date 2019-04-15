@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         //
-        $article = Article::orderBy('created_at' , 'desc')->limit(5)->get();
+        $article = Article::orderBy('created_at' , 'desc')->paginate(5);
         return view('home' , compact('article'));
     }
 
@@ -46,9 +46,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
+        $article = Article::where('slug' , $slug)->get();
+        return view('detail-article' , compact('article'));
     }
 
     /**

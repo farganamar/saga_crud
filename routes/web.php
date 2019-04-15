@@ -19,3 +19,11 @@ Auth::routes();
 
 Route::get('/', 'ArticleController@index');
 Route::get('/dashboard', 'HomeController@index')->middleware('auth');
+
+/*========== CRUD ===============*/
+//article
+Route::get('/article' , 'CrudArticleController@index')->middleware('auth');
+Route::post('/tambah-artikel' , 'CrudArticleController@tambah')->middleware('auth');
+Route::post('/edit-artikel/{id}', 'CrudArticleController@edit')->middleware('auth');
+
+Route::get('/news/{slug}' , 'ArticleController@show');

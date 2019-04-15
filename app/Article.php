@@ -12,6 +12,7 @@ class Article extends Model
     ];
 
 
+
     public function kategori()
     {
         return $this->belongsTo('App\Category', 'category_id');

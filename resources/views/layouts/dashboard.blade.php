@@ -203,8 +203,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="m-menu__item  m-menu__item--active " aria-haspopup="true"><a href="{{url('/')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Home</span></a></li>
 
                                         @auth
-                                            
-                                        
+
+
                                         <li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{url('/dashboard')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Dashboard</span></a></li>
                                         @endauth
 										<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
@@ -437,18 +437,10 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="m-subheader ">
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
-								<h3 class="m-subheader__title ">Home</h3>
+								<h3 class="m-subheader__title ">@yield('header-title')</h3>
 							</div>
 							<div>
-								<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
-									<span class="m-subheader__daterange-label">
-										<span class="m-subheader__daterange-title"></span>
-										<span class="m-subheader__daterange-date m--font-brand"></span>
-									</span>
-									<a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
-										<i class="la la-angle-down"></i>
-									</a>
-								</span>
+                                @yield('date')
 							</div>
 						</div>
 					</div>
@@ -484,7 +476,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<span class="m-login__account-msg m--font-danger">
 															{{ $errors->first('email') }}
 													</span>
-													@endif												
+													@endif
 											</div>
 											<div class="form-group">
 												<label for="recipient-name" class="form-control-label">Password:</label>
@@ -503,7 +495,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
 								</div>
 							</div>
-						</div>			
+						</div>
 
 			<!-- begin::Footer -->
 			<footer class="m-grid__item m-footer ">

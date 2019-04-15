@@ -45,7 +45,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Styles -->
 
 		<!--begin::Page Vendors Styles -->
-		<link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
+
 
 		<!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
@@ -111,14 +113,14 @@ License: You must have a valid license purchased only from themeforest(the above
 											 class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 										<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
 											<ul class="m-menu__subnav">
-                                                                                              <li class="m-menu__item " aria-haspopup="true"><a href="{{url('/')}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-home"></i><span class="m-menu__link-text">Go to Home...</span></a></li>
-                                                <li class="m-menu__item " aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Article</span></a></li>
+                                                <li class="m-menu__item " aria-haspopup="true"><a href="{{url('/')}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-home"></i><span class="m-menu__link-text">Go to Home...</span></a></li>
+                                                {{--  <li class="m-menu__item " aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Article</span></a></li>
                                                 <li class="m-menu__item " aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-car"></i><span class="m-menu__link-text">Create New Category</span></a></li>
                                                 @if (Auth::user()->jabatan == "admin")
 
 												<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Create New Author</span></a></li>
 
-                                                @endif
+                                                @endif  --}}
 											</ul>
 										</div>
 									</li>
@@ -240,8 +242,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-menu__submenu "><span class="m-menu__arrow"></span>
 									<ul class="m-menu__subnav">
 										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true"><span class="m-menu__link"><span class="m-menu__item-here"></span><span class="m-menu__link-text">Layouts</span></span></li>
-										<li class="m-menu__item " aria-haspopup="true"><a href="builder.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Create New Article</span></a></li>
-										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="builder.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Show Article</span></a></li>
+										{{--  <li class="m-menu__item " aria-haspopup="true"><a href="builder.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Create New Article</span></a></li>  --}}
+										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="{{url('/article')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Show Article</span></a></li>
 									</ul>
 								</div>
 							</li>
@@ -250,13 +252,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-menu__submenu "><span class="m-menu__arrow"></span>
 									<ul class="m-menu__subnav">
 										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true"><span class="m-menu__link"><span class="m-menu__item-here"></span><span class="m-menu__link-title"> <span class="m-menu__link-wrap"> <span class="m-menu__link-text">Reports</span>
-										<li class="m-menu__item " aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-pie-chart"></i><span class="m-menu__link-text">Create New Category</span></a></li>
+										{{--  <li class="m-menu__item " aria-haspopup="true"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-pie-chart"></i><span class="m-menu__link-text">Create New Category</span></a></li>  --}}
 										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Show Category</span></a></li>
 									</ul>
 								</div>
                             </li>
                             @if (Auth::user()->jabatan == "admin")
-                                
+
 							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover" m-menu-link-redirect="1"><a href="javascript:;" class="m-menu__link m-menu__toggle"><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-network"></i><span
                                 class="m-menu__link-text">Users</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 								<div class="m-menu__submenu "><span class="m-menu__arrow"></span>
@@ -267,7 +269,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</ul>
 								</div>
                             </li>
-                            
+
                             @endif
 						</ul>
 					</div>
@@ -372,12 +374,18 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Bundle -->
 
 		<!--begin::Page Vendors -->
-		<script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/vendors/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
+
 
 		<!--end::Page Vendors -->
 
 		<!--begin::Page Scripts -->
-		<script src="{{asset('assets/app/js/dashboard.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/app/js/dashboard.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/demo/default/custom/crud/datatables/basic/basic.js')}}" type="text/javascript"></script>
+		<script src="{{asset('assets/demo/default/custom/components/base/toastr.js')}}" type="text/javascript"></script>
+
+
 
 		<!--end::Page Scripts -->
 	</body>
