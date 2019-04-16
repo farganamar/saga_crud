@@ -15,7 +15,13 @@ class CrudArticleController extends Controller
     //
     public function index()
     {
-        $article = Article::all();
+        if(Auth::user()->jabatan != "admin"){
+            $article =  Article::where('user_id' , Auth::user()->id)->get();
+        }
+        else{
+
+            $article = Article::all();
+        }
         $kategori = Category::all();
         return view('crud.article.index' , compact('article', 'kategori'));
     }
@@ -74,7 +80,6 @@ class CrudArticleController extends Controller
             'slug' => str_slug($request->title, '-'),
             'banner' => $banner,
             'user_id' => Auth::user()->id,
-            'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
@@ -82,4 +87,12 @@ class CrudArticleController extends Controller
 
         return back()->with('success', 'sukses');
     }
+
+    public function delete($id)
+    {
+        $article = Article::find($id)->delete();
+
+        return back();
+    }
+
 }
