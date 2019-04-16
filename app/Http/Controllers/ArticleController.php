@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Category;
 
 class ArticleController extends Controller
 {
@@ -16,7 +17,8 @@ class ArticleController extends Controller
     {
         //
         $article = Article::orderBy('created_at' , 'desc')->paginate(5);
-        return view('home' , compact('article'));
+        $category = Category::all();
+        return view('home' , compact('article', 'category'));
     }
 
     /**

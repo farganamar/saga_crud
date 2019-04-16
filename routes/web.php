@@ -16,10 +16,14 @@
 // });
 
 Auth::routes();
-
+/*========== Front-end ===========*/
 Route::get('/', 'ArticleController@index');
 Route::get('/news/{slug}', 'ArticleController@show');
+Route::get('/category/{slug}', 'CategoryController@show');
 
+/*========= End front-end =========*/
+
+/*======== Back-end ============*/
 Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 
 /*========== CRUD ===============*/
@@ -46,3 +50,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/delete-user/{id}', 'UserController@delete');
 });
 
+/*============ end crud ============*/
+/*============ End Back-end ========*/

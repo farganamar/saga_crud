@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('menu')
-    <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
+    <li class="m-menu__item  m-menu__item--submenu m-menu__item--active " m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
                 class="m-menu__link-text">Category</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
         <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
             <ul class="m-menu__subnav">
@@ -12,7 +12,7 @@
     </li>
 @endsection
 @section('header-title')
-Home
+{{$kategori->name}}
 @endsection
 @section('date')
     <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
@@ -62,19 +62,19 @@ Home
                         <div class="m-widget19__header">
                             <div class="m-widget19__user-img">
                                 @if ($item->author->jabatan == "admin")
-                                <img class="m-widget19__img" src="assets/app/media/img//users/user4.jpg" alt="">
+                                <img class="m-widget19__img" src="{{asset('assets/app/media/img//users/user4.jpg')}}" alt="">
 
                                 @else
-                                <img class="m-widget19__img" src="assets/app/media/img//users/user5.jpg" alt="">
+                                <img class="m-widget19__img" src="{{asset('assets/app/media/img//users/user5.jpg')}}" alt="">
                                 @endif
                             </div>
                             <div class="m-widget19__info">
                                 <span class="m-widget19__username">
                                     {{$item->author->name}}
                                 </span><br>
-                                {{-- <span class="m-widget19__time">
-                                    UX/UI Designer, Google
-                                </span> --}}
+                                <span class="m-widget19__time">
+                                    {{date('d, M Y', strtotime($item->created_at))}}
+                                </span>
                             </div>
                             <div class="m-widget19__stats">
                                 {{-- <span class="m-widget19__number m--font-brand">
