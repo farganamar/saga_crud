@@ -72,7 +72,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="m-stack__item m-brand  m-brand--skin-dark ">
 							<div class="m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
-									<a href="index.html" class="m-brand__logo-wrapper">
+									<a href="{{url('dashboard')}}" class="m-brand__logo-wrapper">
 										<img alt="" src="assets/demo/demo3/media/img/logo/logo.png" />
 									</a>
 								</div>
@@ -264,8 +264,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-menu__submenu "><span class="m-menu__arrow"></span>
 									<ul class="m-menu__subnav">
                                         <li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" m-menu-link-redirect="1"><span class="m-menu__link"><span class="m-menu__item-here"></span><span class="m-menu__link-text">Conversions</span></span></li>
-										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Create New Author</span></a></li>
-										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="inner.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Show All</span></a></li>
+										<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="{{url('/user')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Show All</span></a></li>
 									</ul>
 								</div>
                             </li>

@@ -36,3 +36,13 @@ Route::post('/tambah-kategori', 'CrudCategoryController@tambah')->middleware('au
 Route::post('/edit-kategori/{id}', 'CrudCategoryController@edit')->middleware('auth');
 Route::get('/delete-kategori/{id}', 'CrudCategoryController@delete')->middleware('auth');
 
+//user
+Route::middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('/user', 'UserController@index');
+    Route::get('/ubah-jabatan/{id}', 'UserController@ubahJabatan');
+    Route::post('/tambah-user' , 'UserController@tambah');
+    Route::post('/edit-user/{id}' , 'UserController@edit');
+    Route::get('/delete-user/{id}', 'UserController@delete');
+});
+
