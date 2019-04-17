@@ -19,7 +19,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<meta charset="utf-8" />
 		<title>Metronic | Dashboard</title>
 		<meta name="description" content="Latest updates and statistic charts">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!--begin::Web font -->
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
@@ -163,43 +164,14 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<span class="m-nav__section-text">Section</span>
 																</li>
 																<li class="m-nav__item">
-																	<a href="profile.html" class="m-nav__link">
+																	<a href="{{url('profile')}}" class="m-nav__link">
 																		<i class="m-nav__link-icon flaticon-profile-1"></i>
 																		<span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
 																				<span class="m-nav__link-text">My Profile</span>
-																				<span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
 																			</span>
 																		</span>
 																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-share"></i>
-																		<span class="m-nav__link-text">Activity</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-chat-1"></i>
-																		<span class="m-nav__link-text">Messages</span>
-																	</a>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit">
-																</li>
-																<li class="m-nav__item">
-																	<a href="profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-info"></i>
-																		<span class="m-nav__link-text">FAQ</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-																		<span class="m-nav__link-text">Support</span>
-																	</a>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit">
 																</li>
 																<li class="m-nav__item">
                                                                     <a href="{{ route('logout') }}" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
@@ -283,7 +255,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="m-subheader ">
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
-								<h3 class="m-subheader__title ">Dashboard</h3>
+								<h3 class="m-subheader__title ">@yield('head')</h3>
 							</div>
 							<div>
 								<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">

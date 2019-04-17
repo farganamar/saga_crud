@@ -50,5 +50,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/delete-user/{id}', 'UserController@delete');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', 'UserController@profile');
+    Route::post('update-profile/{id}', 'UserController@updateProfile');
+    Route::get('cek-password/{id}/{password}', 'UserController@cekPassword');
+    Route::post('update-password/{id}', 'UserController@updatePassword');
+
+});
+
 /*============ end crud ============*/
+Route::get('/auth/{provider}', 'Auth@redirectToProvider');
+Route::get('/auth/{provider}/callback', 'Auth@handleProviderCallback');
+
 /*============ End Back-end ========*/
+

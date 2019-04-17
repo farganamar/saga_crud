@@ -117,7 +117,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																			<span class="m-nav__section-text">Section</span>
 																		</li>
 																		<li class="m-nav__item">
-																			<a href="profile.html" class="m-nav__link">
+																			<a href="{{url('profile')}}" class="m-nav__link">
 																				<i class="m-nav__link-icon flaticon-profile-1"></i>
 																				<span class="m-nav__link-title">
 																					<span class="m-nav__link-wrap">
@@ -139,13 +139,23 @@ License: You must have a valid license purchased only from themeforest(the above
 													</div>
 												</li>
 												@endauth
-												@guest
+                                                @guest
 												<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
 												 m-dropdown-toggle="click">
 													<a href="#" class="m-nav__link m-dropdown__toggle">
 														<span class="m-topbar__userpic m--hide">
 															<img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="" />
-														</span>
+                                                        </span>
+														<span class="m-topbar__username" data-toggle="modal" data-target="#m_modal_6">Sign Up</span>
+														{{-- <span class="m-topbar__welcome">Sign In</span> --}}
+													</a>
+												</li>
+												<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+												 m-dropdown-toggle="click">
+													<a href="#" class="m-nav__link m-dropdown__toggle">
+														<span class="m-topbar__userpic m--hide">
+															<img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                                                        </span>
 														<span class="m-topbar__username" data-toggle="modal" data-target="#m_modal_5">Sign In</span>
 														{{-- <span class="m-topbar__welcome">Sign In</span> --}}
 													</a>
@@ -261,46 +271,90 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 
 			<!-- end::Body -->
-						<div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-sm" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<form action="{{ route('login') }}" method="POST">
-                                            @csrf
-											<div class="form-group">
-												<label for="recipient-name" class="form-control-label">Email:</label>
-												<input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off" required>
-													@if ($errors->has('email'))
-													<span class="m-login__account-msg m--font-danger">
-															{{ $errors->first('email') }}
-													</span>
-													@endif
-											</div>
-											<div class="form-group">
-												<label for="recipient-name" class="form-control-label">Password:</label>
-                                                <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password" required>
-                                                @if ($errors->has('password'))
-                                                <span class="m-login__account-msg m--font-danger">
-                                                    {{ $errors->first('password') }}
-                                                </span>
-                                                @endif
-											</div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" id="btn-login">Sign In</button>
-                                        </div>
-                                    </form>
-								</div>
-							</div>
-						</div>
+            <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('login') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Email:</label>
+                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off" required>
+                                        @if ($errors->has('email'))
+                                        <span class="m-login__account-msg m--font-danger">
+                                                {{ $errors->first('email') }}
+                                        </span>
+                                        @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Password:</label>
+                                    <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password" required>
+                                    @if ($errors->has('password'))
+                                    <span class="m-login__account-msg m--font-danger">
+                                        {{ $errors->first('password') }}
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                {{--  <a href="{{url('auth/facebook')}}">Facebook</a>  --}}
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="btn-login">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
+            <div class="modal fade" id="m_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Name:</label>
+                                    <input class="form-control m-input" type="text" placeholder="text" name="name" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Email:</label>
+                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Password:</label>
+                                    <input class="form-control m-input m-login__form-input--last" id="new_pass" type="password" placeholder="Password" name="" required>
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Re-type Password:</label>
+                                    <input class="form-control m-input m-login__form-input--last" type="password" id="confirm_pass" placeholder="Password" name="password" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                {{--  <a href="{{url('auth/facebook')}}">Facebook</a>  --}}
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="btn-register">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 			<!-- begin::Footer -->
 			<footer class="m-grid__item m-footer ">
 				<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
@@ -378,6 +432,38 @@ License: You must have a valid license purchased only from themeforest(the above
         <!--end::Page Scripts -->
         <script>
             $('#btn-login').submit();
+            $('#btn-register').submit();
+            var password_baru = "";
+            $('#new_pass').change(function(){
+                password_baru = $(this).val();
+            });
+            $('#confirm_pass').change(function(){
+                let ulangi_password = $(this).val();
+                if(ulangi_password != password_baru  ){
+                    $('#confirm_pass').val("");
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-full-width",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                        };
+
+                        toastr.error("Password yang anda masukkan tidak sama !  ");
+
+                }
+            })
+
         </script>
 	</body>
 

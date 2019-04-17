@@ -77,5 +77,4 @@
         </main>
     </div>
 </body>
-<script>window.location.replace("{{url('/')}}");</script>
 </html>

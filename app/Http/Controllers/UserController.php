@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -71,5 +73,39 @@ class UserController extends Controller
         $user = User::find($id)->delete();
         return back();
     }
+
+    public function profile()
+    {
+        $user = User::find(Auth::user()->id);
+        return view('crud.user.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request, $id)
+    {
+        $user = User::find($id)->update([
+            'name' => $request->name,
+        ]);
+        return back();
+    }
+
+    public function cekPassword(Request $request, $id, $password)
+    {
+        $pass = User::find($id);
+        if(Hash::check($password, $pass->password)){
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $update = User::find($id)->update([
+            'password' => Hash::make($request->new_pass),
+        ]);
+        return back()->with("success" , "Sukses Merubah Password ");
+    }
+
 
 }
