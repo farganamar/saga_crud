@@ -59,8 +59,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 /*============ end crud ============*/
-Route::get('/auth/{provider}', 'Auth@redirectToProvider');
-Route::get('/auth/{provider}/callback', 'Auth@handleProviderCallback');
+Route::get('/auth/{provider}', 'AuthSocial@redirectToProvider');
+Route::get('/auth/{provider}/callback', 'AuthSocial@handleProviderCallback');
 
 /*============ End Back-end ========*/
 

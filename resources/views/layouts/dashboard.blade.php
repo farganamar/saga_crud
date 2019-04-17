@@ -200,22 +200,6 @@ License: You must have a valid license purchased only from themeforest(the above
 							 m-quicksearch-mode="default">
 
 								<!--begin::Search Form -->
-								<form class="m-header-search__form">
-									<div class="m-header-search__wrapper">
-										<span class="m-header-search__icon-search" id="m_quicksearch_search">
-											<i class="la la-search"></i>
-										</span>
-										<span class="m-header-search__input-wrapper">
-											<input autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="Search..." id="m_quicksearch_input">
-										</span>
-										<span class="m-header-search__icon-close" id="m_quicksearch_close">
-											<i class="la la-remove"></i>
-										</span>
-										<span class="m-header-search__icon-cancel" id="m_quicksearch_cancel">
-											<i class="la la-remove"></i>
-										</span>
-									</div>
-								</form>
 
 								<!--end::Search Form -->
 
@@ -272,7 +256,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			<!-- end::Body -->
             <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
@@ -303,7 +287,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                {{--  <a href="{{url('auth/facebook')}}">Facebook</a>  --}}
+                                <a href="{{url('auth/google')}}"><button type="button" class="btn btn-secondary"><img src="https://img.icons8.com/color/20/000000/google-logo.png"> Sign In With Google</button></a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary" id="btn-login">Sign In</button>
                             </div>
@@ -313,7 +297,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
 
             <div class="modal fade" id="m_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
@@ -347,7 +331,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                {{--  <a href="{{url('auth/facebook')}}">Facebook</a>  --}}
+                                <a href="{{url('auth/google')}}"><button type="button" class="btn btn-secondary"><img src="https://img.icons8.com/color/20/000000/google-logo.png"> Sign Up With Google</button></a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary" id="btn-register">Sign Up</button>
                             </div>
